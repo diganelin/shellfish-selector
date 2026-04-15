@@ -1,0 +1,7 @@
+streamlit>=1.32
+requests
+requests-cache
+pandas
+plotly
+astral
+pytz
