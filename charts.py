@@ -109,7 +109,6 @@ def make_tide_chart(
 
     fig.update_layout(
         margin=dict(l=40, r=30, t=30, b=40),
-        height=260,
         hovermode="x unified",
         showlegend=False,
         xaxis=dict(
