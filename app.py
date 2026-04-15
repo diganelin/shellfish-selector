@@ -29,14 +29,14 @@ st.markdown("""
 
 st.title("Shellfishing Windows")
 
-PACIFIC = pytz.timezone("US/Pacific")
+PACIFIC = pytz.timezone("America/Los_Angeles")
 END_OF_YEAR = date(date.today().year, 12, 31)
 
 
 def _today_sun(station_id: str):
     try:
         s = STATIONS[station_id]
-        loc = LocationInfo(s["name"], "CA", "US/Pacific", s["lat"], s["lon"])
+        loc = LocationInfo(s["name"], "CA", "America/Los_Angeles", s["lat"], s["lon"])
         times = astral_sun(loc.observer, date=date.today(), tzinfo=PACIFIC)
         return times["sunrise"], times["sunset"]
     except Exception:

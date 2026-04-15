@@ -54,7 +54,7 @@ def fetch_predictions(station_id: str, start: date, end: date) -> pd.DataFrame:
     df["t"] = pd.to_datetime(df["t"], utc=True)
     df["v"] = pd.to_numeric(df["v"])
     df = df.rename(columns={"t": "time", "v": "height"}).drop(columns=["s"], errors="ignore")
-    # Convert GMT → US/Pacific (handles DST)
-    df["time"] = df["time"].dt.tz_convert("US/Pacific")
+    # Convert GMT → America/Los_Angeles (handles DST)
+    df["time"] = df["time"].dt.tz_convert("America/Los_Angeles")
     df = df.sort_values("time").reset_index(drop=True)
     return df

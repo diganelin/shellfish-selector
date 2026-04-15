@@ -21,13 +21,13 @@ SPECIES_RULES: dict[str, dict] = {
     },
 }
 
-PACIFIC = pytz.timezone("US/Pacific")
+PACIFIC = pytz.timezone("America/Los_Angeles")
 DAY_NAMES = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
 
 
 def _sun_times(day: date, station_id: str) -> tuple:
     s = STATIONS[station_id]
-    loc = LocationInfo(s["name"], "CA", "US/Pacific", s["lat"], s["lon"])
+    loc = LocationInfo(s["name"], "CA", "America/Los_Angeles", s["lat"], s["lon"])
     times = sun(loc.observer, date=day, tzinfo=PACIFIC)
     return times["sunrise"], times["sunset"]
 
